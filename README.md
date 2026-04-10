@@ -21,6 +21,7 @@ A web application that fetches and displays anonymous secrets from users around 
 | [Express.js](https://expressjs.com/) | Web server and routing |
 | [EJS](https://ejs.co/) | Server-side HTML templating |
 | [Axios](https://axios-http.com/) | HTTP client for API requests |
+| [Vercel](https://vercel.com/) | Deployment & serverless functions |
 | [Secrets API](https://secrets-api.appbrewery.com/) | External API providing anonymous secrets |
 | CSS Animations | Rotating gradient border & glow effects |
 
@@ -29,9 +30,11 @@ A web application that fetches and displays anonymous secrets from users around 
 ## 📁 Project Structure
 
 ```
-Secrets Project/
-├── index.js                        # Express server & API integration
+├── api/
+│   └── index.js                    # Vercel serverless function with EJS rendering
+├── index.js                        # Express server (for local development)
 ├── package.json                    # Project metadata & dependencies
+├── vercel.json                     # Vercel deployment configuration
 ├── public/
 │   ├── images/
 │   │   └── whisper-img.jpg         # Card background image
@@ -55,7 +58,7 @@ Secrets Project/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/AbdulRab1309/secrets-project.git
-   cd secrets-project/Secrets\ Project
+   cd secrets-project
    ```
 
 2. **Install dependencies**
@@ -72,6 +75,29 @@ Secrets Project/
    ```
    http://localhost:3000
    ```
+
+---
+
+## ☁️ Deployment
+
+This project is deployed on **Vercel** as a serverless function.
+
+### Deploy to Vercel
+
+1. Install Vercel CLI:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. Deploy:
+   ```bash
+   vercel
+   ```
+
+The `vercel.json` configuration handles:
+- Serverless function deployment for the Express app
+- Static asset serving for CSS and images
+- EJS template rendering via the API route
 
 ---
 
